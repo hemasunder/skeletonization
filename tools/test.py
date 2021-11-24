@@ -7,7 +7,8 @@ from model import build_model
 from pathlib import Path
 from glob import glob
 import cv2
-import pickle5 as pickle
+# import pickle5 as pickle
+import pickle
 import numpy as np
 from sklearn.metrics import f1_score
 

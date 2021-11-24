@@ -2,7 +2,8 @@ import torch
 import numpy as np
 from tqdm import tqdm
 import sys
-import pickle5 as pickle
+# import pickle5 as pickle
+import pickle
 from torch.utils.data import Dataset, DataLoader, ConcatDataset
 import random
 from glob import glob
@@ -10,6 +11,7 @@ import torch.nn.functional as F
 import cv2
 
 sys.path.append('.')
+
 
 
 class PixelDataset(Dataset):
@@ -32,11 +34,11 @@ class PixelDataset(Dataset):
         # load
         image_name = self.indexes[index]
 
-        label = cv2.imread(f'{self.data_folder}/img_train2/{image_name}')
-        label = (label[:,:,0])
+        label = cv2.imread(f'{self.data_folder}/gt/{image_name}',0)
+        # label = (label[:,:,0])
 
-        image = cv2.imread(f'{self.data_folder}/img_train_shape/{image_name}')
-        image = (image[:,:,0])
+        image = cv2.imread(f'{self.data_folder}/train/{image_name}',0)
+        # image = (image[:,:,0])
         # image = np.expand_dims(image, axis=0)
         
         return image, label
@@ -49,3 +51,4 @@ def build_dataset(cfg):
     val_ds = PixelDataset(cfg.data_folder, cfg.ann_file, 'val')
 
     return train_ds, val_ds
+

@@ -239,10 +239,10 @@ def build_transforms(is_train, cfg=None):
     if is_train:
         transforms = Compose([
             # Mosaic(cfg),
-            Flip(), # ok
-            Rotate(), # ok
+            # Flip(), # commenting out flip for now
+            # Rotate(), # commenting out rotate for now
             # Flip(),
-            Shift(),
+            # Shift(), # commenting out shift for now
             # GaussianNoise(), # ok
             Normalize()
         ])
