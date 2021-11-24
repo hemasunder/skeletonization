@@ -8,5 +8,4 @@ model/backbones/__pycache__/
 solver/__pycache__/
 tools/__pycache__/
 utils/__pycache__/
-dataset
 temp
